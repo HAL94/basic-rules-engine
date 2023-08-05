@@ -11,7 +11,7 @@
 
 <body class="flex flex-row justify-center gap-4">
     <div class="h-[100vh] bg-gray-200 min-w-[400px]" data-customize-panel="">
-        <form id="conditionForm" class="flex flex-col justify-center items-start px-3 gap-4 mt-4">
+        <!-- <form id="conditionForm" class="flex flex-col justify-center items-start px-3 gap-4 mt-4">
             <div data-conds-list="cond_0">
                 <div class="flex flex-col gap-3 items-start justify-center" data-conds-index="0">
                     <select name="field_0_0" class="border rounded w-full bg-white p-2">                
@@ -40,14 +40,23 @@
             <button type="button" onclick="addOrCondition(event)" class="bg-white hover:bg-[#333] cursor-pointer p-3 hover:text-white rounded">
                 OR+
             </button>
-        </form>
-        <button type="button" onclick="applyLogicShow(event)">Show When</button>
+        </form> -->
+        <div class="flex-col mt-3 justify-center items-start gap-2 px-3" hidden data-proprties-list="">
+            <div data-target-attr="hidden" class="w-full">
+                <p class="font-semibold text-[14px]">Show This Field <span data-clicked-field=""></span></p>
+                <div class="flex flex-row justify-start items-start gap-3 my-3">
+                    <button type="button" class="border rounded border-[#454353] p-2 hover:bg-[#645454] hover:text-white">Always</button>
+                    <button type="button" class="border rounded border-[#454353] p-2 hover:bg-[#645454] hover:text-white" onclick="applyLogicShow(event)">When</button>
+                    <button type="button" class="border rounded border-[#454353] p-2 hover:bg-[#645454] hover:text-white">Never</button>                
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container relative overflow-y-auto">
-        <h1 class="text-3xl font-bold underline">Basic Rules Engine</h1>
+        <h1 class="text-3xl font-bold">Basic Rules Engine</h1>
         <div class="flex justify-center items-center gap-4">
             <form id="citizenForm" class="flex flex-col justify-center gap-4 items-start">
-                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                <div onclick="showFieldCustomizationPanel('citizenType')" class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
                     <label for="citizenType">Citizen Type</label>
                     <select name="citizenType" data-input-select="" data-input-label="Citizen Type"
                         class="border rounded min-w-[400px] bg-gray-200 p-2">
@@ -57,12 +66,12 @@
                         <option value="3">Visitor</option>
                     </select>
                 </div>
-                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                <div onclick="showFieldCustomizationPanel('nationalId')" class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
                     <label for="nationalId">Identity Id</label>
                     <input type="text" data-input-text="" name="nationalId" data-input-label="National Id"
                         class="border rounded min-w-[400px] bg-gray-200 p-2" />
                 </div>
-                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                <div onclick="showFieldCustomizationPanel('mobileNo')" class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
                     <label for="mobileNo">Mobile Number</label>
                     <input type="text" data-input-text="" name="mobileNo" data-input-label="Mobile Number"
                         class="border rounded min-w-[400px] bg-gray-200 p-2" />

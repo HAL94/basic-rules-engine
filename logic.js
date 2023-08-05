@@ -1,10 +1,10 @@
 const conditions = {
   'ConditionOperation|IsFilledOut': {
     label: 'Is Filled Out',
-    call: (field, extraParam) => {
-      const fieldExtracted = document.querySelector(`[name="${field}"]`);
+    call: (fieldName, _extraParam) => {
+      const field = document.querySelector(`[name="${fieldName}"]`);
       //   console.log('fieldExtracted', fieldExtracted);
-      return Boolean(fieldExtracted.value);
+      return Boolean(field.value);
     },
   },
   'ConditionOperation|IsNotFilledOut': {
