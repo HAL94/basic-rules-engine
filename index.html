@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rule Engines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-row justify-center gap-4">
+    <div class="h-[100vh] bg-gray-200 min-w-[400px]" data-customize-panel="">
+        <form id="conditionForm" class="flex flex-col justify-center items-start px-3 gap-4 mt-4">
+            <div data-conds-list="cond_0">
+                <div class="flex flex-col gap-3 items-start justify-center" data-conds-index="0">
+                    <select name="field_0_0" class="border rounded w-full bg-white p-2">                
+                        <option selected value="citizenType">Citizen Type</option>
+                        <option value="nationalId">Identity Id</option>
+                        <option value="mobileNo">Mobile Number</option>
+                    </select>
+                    <select name="cond_0_0" class="border rounded w-full bg-white p-2">                
+                        <option selected="selected" value="ConditionOperation|IsFilledOut">is filled out</option>
+                        <option value="ConditionOperation|IsNotFilledOut">is not filled out</option>
+                        <option value="ConditionOperation|StringEquals">is</option>
+                        <option value="ConditionOperation|StringDoesNotEqual">is not</option>
+                        <option value="ConditionOperation|Contains">contains</option>
+                        <option value="ConditionOperation|DoesNotContain">does not contain</option>
+                        <option value="ConditionOperation|EndsWith">ends with</option>
+                        <option value="ConditionOperation|DoesNotEndWith">does not end with</option>
+                        <option value="ConditionOperation|StartsWith">starts with</option>
+                        <option value="ConditionOperation|DoesNotStartWith">does not start with</option>
+                    </select>
+                    <input name="value_0_0" class="border rounded w-full bg-white p-2 hidden"/>
+                    <button type="button" onclick="addAndCondition(event, 'cond_0')" class="bg-white hover:bg-[#333] cursor-pointer p-3 hover:text-white rounded">
+                        AND+
+                    </button>
+                </div>
+            </div>
+            <button type="button" onclick="addOrCondition(event)" class="bg-white hover:bg-[#333] cursor-pointer p-3 hover:text-white rounded">
+                OR+
+            </button>
+        </form>
+        <button type="button" onclick="applyLogicShow(event)">Show When</button>
+    </div>
+    <div class="container relative overflow-y-auto">
+        <h1 class="text-3xl font-bold underline">Basic Rules Engine</h1>
+        <div class="flex justify-center items-center gap-4">
+            <form id="citizenForm" class="flex flex-col justify-center gap-4 items-start">
+                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                    <label for="citizenType">Citizen Type</label>
+                    <select name="citizenType" data-input-select="" data-input-label="Citizen Type"
+                        class="border rounded min-w-[400px] bg-gray-200 p-2">
+                        <option selected value=""></option>
+                        <option value="1">Citizen</option>
+                        <option value="2">Resident</option>
+                        <option value="3">Visitor</option>
+                    </select>
+                </div>
+                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                    <label for="nationalId">Identity Id</label>
+                    <input type="text" data-input-text="" name="nationalId" data-input-label="National Id"
+                        class="border rounded min-w-[400px] bg-gray-200 p-2" />
+                </div>
+                <div class="border flex flex-col justify-center items-start gap-2 p-2 rounded cursor-pointer">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input type="text" data-input-text="" name="mobileNo" data-input-label="Mobile Number"
+                        class="border rounded min-w-[400px] bg-gray-200 p-2" />
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+    <script src="utils.js"></script>
+    <script src="logic.js"></script>
+</body>
+
+</html>
